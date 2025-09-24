@@ -1,0 +1,127 @@
+<svg viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
+    <!-- Styles -->
+    <defs>
+      <style>
+        .node {
+          fill: #4285F4;
+          stroke: #2962FF;
+          stroke-width: 2;
+          rx: 10;
+          ry: 10;
+        }
+        .input-node {
+          fill: #34A853;
+          stroke: #1B7340;
+        }
+        .output-node {
+          fill: #EA4335;
+          stroke: #B31412;
+        }
+        .node-text {
+          font-family: Arial, sans-serif;
+          font-size: 14px;
+          fill: white;
+          text-anchor: middle;
+        }
+        .small-text {
+          font-size: 12px;
+        }
+        .edge {
+          stroke: #5F6368;
+          stroke-width: 2;
+          fill: none;
+        }
+        .edge-text {
+          font-family: Arial, sans-serif;
+          font-size: 12px;
+          fill: #5F6368;
+          text-anchor: middle;
+        }
+        .background {
+          fill: white;
+        }
+      </style>
+    </defs>
+  
+    <!-- Background -->
+    <rect x="0" y="0" width="800" height="700" class="background" />
+  
+    <!-- Title -->
+    <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Medical Document Processing System Flow</text>
+  
+    <!-- Nodes - Adjusted Y positions to fit better -->
+    <!-- Input Node -->
+    <rect x="300" y="80" width="200" height="60" class="node input-node" />
+    <text x="400" y="105" class="node-text">User Uploads Image</text>
+    <text x="400" y="125" class="node-text small-text">Medical Document</text>
+  
+    <!-- Agent 1: OCR -->
+    <rect x="300" y="180" width="200" height="60" class="node" />
+    <text x="400" y="205" class="node-text">Agent 1: OCR</text>
+    <text x="400" y="225" class="node-text small-text">Text Extraction</text>
+  
+    <!-- Agent 2: Correction -->
+    <rect x="300" y="280" width="200" height="60" class="node" />
+    <text x="400" y="305" class="node-text">Agent 2: Text Correction</text>
+    <text x="400" y="325" class="node-text small-text">Fix Spelling Mistakes</text>
+  
+    <!-- Agent 3: Understanding -->
+    <rect x="300" y="380" width="200" height="60" class="node" />
+    <text x="400" y="405" class="node-text">Agent 3: Understanding</text>
+    <text x="400" y="425" class="node-text small-text">Extract Medical Information</text>
+  
+    <!-- Agent 4: FHIR Format -->
+    <rect x="120" y="480" width="200" height="60" class="node" />
+    <text x="220" y="505" class="node-text">Agent 4: FHIR Format</text>
+    <text x="220" y="525" class="node-text small-text">Standardize to JSON</text>
+  
+    <!-- Agent 5: Graph DB -->
+    <rect x="480" y="480" width="200" height="60" class="node" />
+    <text x="580" y="505" class="node-text">Agent 5: Graph DB</text>
+    <text x="580" y="525" class="node-text small-text">Store in Neo4j Database</text>
+  
+    <!-- Agent 6: Final Output -->
+    <rect x="300" y="600" width="200" height="60" class="node output-node" />
+    <text x="400" y="625" class="node-text">Agent 6: Final Response</text>
+    <text x="400" y="645" class="node-text small-text">Medical Analysis & Recommendations</text>
+  
+    <!-- Edges -->
+    <!-- Upload to OCR -->
+    <path d="M 400 140 L 400 180" class="edge" />
+    <polygon points="400,180 395,170 405,170" fill="#5F6368" />
+  
+    <!-- OCR to Correction -->
+    <path d="M 400 240 L 400 280" class="edge" />
+    <polygon points="400,280 395,270 405,270" fill="#5F6368" />
+    <text x="440" y="260" class="edge-text">Extracted Text</text>
+  
+    <!-- Correction to Understanding -->
+    <path d="M 400 340 L 400 380" class="edge" />
+    <polygon points="400,380 395,370 405,370" fill="#5F6368" />
+    <text x="440" y="360" class="edge-text">Corrected Text</text>
+  
+    <!-- Understanding to FHIR -->
+    <path d="M 300 410 L 220 410 L 220 480" class="edge" />
+    <polygon points="220,480 215,470 225,470" fill="#5F6368" />
+    <text x="260" y="400" class="edge-text">Understood Info</text>
+  
+    <!-- Understanding to Graph DB -->
+    <path d="M 500 410 L 580 410 L 580 480" class="edge" />
+    <polygon points="580,480 575,470 585,470" fill="#5F6368" />
+    <text x="540" y="400" class="edge-text">Understood Info</text>
+  
+    <!-- Graph DB to Final Output -->
+    <path d="M 580 540 L 580 630 L 500 630" class="edge" />
+    <polygon points="500,630 510,625 510,635" fill="#5F6368" />
+    <text x="590" y="585" class="edge-text">Graph Data</text>
+  
+    <!-- Legend -->
+    <rect x="620" y="100" width="20" height="20" fill="#34A853" stroke="#1B7340" rx="4" ry="4" />
+    <text x="650" y="115" font-family="Arial, sans-serif" font-size="14" text-anchor="start">Input</text>
+    
+    <rect x="620" y="130" width="20" height="20" fill="#4285F4" stroke="#2962FF" rx="4" ry="4" />
+    <text x="650" y="145" font-family="Arial, sans-serif" font-size="14" text-anchor="start">Processing</text>
+    
+    <rect x="620" y="160" width="20" height="20" fill="#EA4335" stroke="#B31412" rx="4" ry="4" />
+    <text x="650" y="175" font-family="Arial, sans-serif" font-size="14" text-anchor="start">Output</text>
+  </svg>
